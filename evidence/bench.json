@@ -1,0 +1,839 @@
+{
+  "costs": {
+    "wire_encoding": "compact JSON, UTF-8; hashes as lowercase hex; bytes counted on the response body only",
+    "hash_bytes_on_wire": 16,
+    "request_latency_ms": 200.0,
+    "local_scan_ms_per_row": 0.01,
+    "wire_bytes_per_ms": 1250.0,
+    "local_scan_holds_queue": true,
+    "max_waiting": 5,
+    "backoff_ms": 500.0
+  },
+  "config": {
+    "n_rows": 100000,
+    "rates": [
+      0.001,
+      0.01,
+      0.1,
+      0.5
+    ],
+    "bucket_counts": [
+      256,
+      4096
+    ],
+    "cycles": 5,
+    "seed": 1,
+    "poll_interval_ms": 60000.0
+  },
+  "results": [
+    {
+      "rate": 0.001,
+      "strategy": "FullRefresh",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196435,
+        "queue_held_ms": 10957.148,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.148,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 12196001.8,
+        "queue_held_ms": 10956.769439999998,
+        "rows_scanned_local": 99996.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 10956.76944,
+        "rows_fetched": 99996.8,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.001,
+      "strategy": "KeyHashSnapshot",
+      "bootstrap": {
+        "requests": 2,
+        "bytes": 16485331,
+        "queue_held_ms": 15588.264799999999,
+        "rows_scanned_local": 200000,
+        "queue_full": 0,
+        "elapsed_ms": 15588.264799999999,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 2.0,
+        "bytes": 4298627.2,
+        "queue_held_ms": 4839.671759999999,
+        "rows_scanned_local": 100077.0,
+        "queue_full": 0.0,
+        "elapsed_ms": 4839.671759999995,
+        "rows_fetched": 80.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.001,
+      "strategy": "BucketDiff/256",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16494292,
+        "queue_held_ms": 16795.433599999997,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16795.433599999997,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 1364658.2,
+        "queue_held_ms": 3692.4645600000003,
+        "rows_scanned_local": 200073.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 3692.464559999993,
+        "rows_fetched": 80.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.001,
+      "strategy": "BucketDiff/4096",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16628692,
+        "queue_held_ms": 16902.9536,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16902.9536,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 256265.8,
+        "queue_held_ms": 2805.7506399999997,
+        "rows_scanned_local": 200073.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 2805.7506399999866,
+        "rows_fetched": 80.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.001,
+      "strategy": "LocalSnapshot",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196460,
+        "queue_held_ms": 10957.168,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.168,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 9933.8,
+        "queue_held_ms": 1207.9150400000003,
+        "rows_scanned_local": 99996.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 1207.9150400000012,
+        "rows_fetched": 80.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.01,
+      "strategy": "FullRefresh",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196435,
+        "queue_held_ms": 10957.148,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.148,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 12200341.2,
+        "queue_held_ms": 10960.550960000002,
+        "rows_scanned_local": 100027.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 10960.550959999999,
+        "rows_fetched": 100027.8,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.01,
+      "strategy": "KeyHashSnapshot",
+      "bootstrap": {
+        "requests": 2,
+        "bytes": 16485331,
+        "queue_held_ms": 15588.264799999999,
+        "rows_scanned_local": 200000,
+        "queue_full": 0,
+        "elapsed_ms": 15588.264799999999,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 2.0,
+        "bytes": 4386745.6,
+        "queue_held_ms": 4917.526479999999,
+        "rows_scanned_local": 100813.0,
+        "queue_full": 0.0,
+        "elapsed_ms": 4917.526479999998,
+        "rows_fetched": 785.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.01,
+      "strategy": "BucketDiff/256",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16494292,
+        "queue_held_ms": 16795.433599999997,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16795.433599999997,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 4300108.6,
+        "queue_held_ms": 6048.49488,
+        "rows_scanned_local": 200840.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 6048.4948800000075,
+        "rows_fetched": 785.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.01,
+      "strategy": "BucketDiff/4096",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16628692,
+        "queue_held_ms": 16902.9536,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16902.9536,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 1176846.8,
+        "queue_held_ms": 3549.8854399999996,
+        "rows_scanned_local": 200840.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 3549.8854399999955,
+        "rows_fetched": 785.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.01,
+      "strategy": "LocalSnapshot",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196460,
+        "queue_held_ms": 10957.168,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.168,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 97144.6,
+        "queue_held_ms": 1277.99368,
+        "rows_scanned_local": 100027.8,
+        "queue_full": 0.0,
+        "elapsed_ms": 1277.9936799999996,
+        "rows_fetched": 785.2,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.1,
+      "strategy": "FullRefresh",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196435,
+        "queue_held_ms": 10957.148,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.148,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 12220421.0,
+        "queue_held_ms": 10977.720800000001,
+        "rows_scanned_local": 100138.4,
+        "queue_full": 0.0,
+        "elapsed_ms": 10977.720800000005,
+        "rows_fetched": 100138.4,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.1,
+      "strategy": "KeyHashSnapshot",
+      "bootstrap": {
+        "requests": 2,
+        "bytes": 16485331,
+        "queue_held_ms": 15588.264799999999,
+        "rows_scanned_local": 200000,
+        "queue_full": 0,
+        "elapsed_ms": 15588.264799999999,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 2.0,
+        "bytes": 5223524.4,
+        "queue_held_ms": 5655.569520000002,
+        "rows_scanned_local": 107675.0,
+        "queue_full": 0.0,
+        "elapsed_ms": 5655.569520000002,
+        "rows_fetched": 7536.6,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.1,
+      "strategy": "BucketDiff/256",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16494292,
+        "queue_held_ms": 16795.433599999997,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16795.433599999997,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 5232485.4,
+        "queue_held_ms": 6864.1223199999995,
+        "rows_scanned_local": 207813.4,
+        "queue_full": 0.0,
+        "elapsed_ms": 6864.122319999995,
+        "rows_fetched": 7536.6,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.1,
+      "strategy": "BucketDiff/4096",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16628692,
+        "queue_held_ms": 16902.9536,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16902.9536,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 4987859.4,
+        "queue_held_ms": 6668.421519999999,
+        "rows_scanned_local": 207813.4,
+        "queue_full": 0.0,
+        "elapsed_ms": 6668.421520000013,
+        "rows_fetched": 7536.6,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.1,
+      "strategy": "LocalSnapshot",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196460,
+        "queue_held_ms": 10957.168,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.168,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 933752.2,
+        "queue_held_ms": 1948.38576,
+        "rows_scanned_local": 100138.4,
+        "queue_full": 0.0,
+        "elapsed_ms": 1948.385759999996,
+        "rows_fetched": 7536.6,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.5,
+      "strategy": "FullRefresh",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196435,
+        "queue_held_ms": 10957.148,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.148,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 12203488.8,
+        "queue_held_ms": 10961.191040000002,
+        "rows_scanned_local": 99840.0,
+        "queue_full": 0.0,
+        "elapsed_ms": 10961.191040000002,
+        "rows_fetched": 99840.0,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.5,
+      "strategy": "KeyHashSnapshot",
+      "bootstrap": {
+        "requests": 2,
+        "bytes": 16485331,
+        "queue_held_ms": 15588.264799999999,
+        "rows_scanned_local": 200000,
+        "queue_full": 0,
+        "elapsed_ms": 15588.264799999999,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 2.0,
+        "bytes": 8262181.4,
+        "queue_held_ms": 8331.041119999998,
+        "rows_scanned_local": 132129.6,
+        "queue_full": 0.0,
+        "elapsed_ms": 8331.041120000004,
+        "rows_fetched": 32289.6,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.5,
+      "strategy": "BucketDiff/256",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16494292,
+        "queue_held_ms": 16795.433599999997,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16795.433599999997,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 8271142.4,
+        "queue_held_ms": 9536.609919999999,
+        "rows_scanned_local": 231969.6,
+        "queue_full": 0.0,
+        "elapsed_ms": 9536.609919999999,
+        "rows_fetched": 32289.6,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.5,
+      "strategy": "BucketDiff/4096",
+      "bootstrap": {
+        "requests": 3,
+        "bytes": 16628692,
+        "queue_held_ms": 16902.9536,
+        "rows_scanned_local": 300000,
+        "queue_full": 0,
+        "elapsed_ms": 16902.9536,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 3.0,
+        "bytes": 8405542.4,
+        "queue_held_ms": 9644.129919999998,
+        "rows_scanned_local": 231969.6,
+        "queue_full": 0.0,
+        "elapsed_ms": 9644.12992000001,
+        "rows_fetched": 32289.6,
+        "cycles": 5
+      },
+      "verified": true
+    },
+    {
+      "rate": 0.5,
+      "strategy": "LocalSnapshot",
+      "bootstrap": {
+        "requests": 1,
+        "bytes": 12196460,
+        "queue_held_ms": 10957.168,
+        "rows_scanned_local": 100000,
+        "queue_full": 0,
+        "elapsed_ms": 10957.168,
+        "rows_fetched": 100000
+      },
+      "steady": {
+        "requests": 1.0,
+        "bytes": 4010388.0,
+        "queue_held_ms": 4406.710399999999,
+        "rows_scanned_local": 99840.0,
+        "queue_full": 0.0,
+        "elapsed_ms": 4406.710399999999,
+        "rows_fetched": 32289.6,
+        "cycles": 5
+      },
+      "verified": true
+    }
+  ],
+  "crossover": {
+    "BucketDiff/256": {
+      "bytes": {
+        "bracket": [
+          0.01,
+          0.1
+        ],
+        "a_wins_at": [
+          0.001,
+          0.01
+        ],
+        "monotonic": true,
+        "summary": "A stops beating B between 1% and 10%"
+      },
+      "queue_held_ms": {
+        "bracket": [
+          0.001,
+          0.01
+        ],
+        "a_wins_at": [
+          0.001
+        ],
+        "monotonic": true,
+        "summary": "A stops beating B between 0.1% and 1%"
+      }
+    },
+    "BucketDiff/4096": {
+      "bytes": {
+        "bracket": [
+          0.1,
+          0.5
+        ],
+        "a_wins_at": [
+          0.001,
+          0.01,
+          0.1
+        ],
+        "monotonic": true,
+        "summary": "A stops beating B between 10% and 50%"
+      },
+      "queue_held_ms": {
+        "bracket": [
+          0.01,
+          0.1
+        ],
+        "a_wins_at": [
+          0.001,
+          0.01
+        ],
+        "monotonic": true,
+        "summary": "A stops beating B between 1% and 10%"
+      }
+    }
+  },
+  "background_run": {
+    "rate": 0.01,
+    "load": {
+      "mean_gap_ms": 100.0,
+      "service_ms": 250.0
+    },
+    "results": [
+      {
+        "strategy": "FullRefresh",
+        "queue_full": 13,
+        "bootstrap": {
+          "requests": 1,
+          "bytes": 12196435,
+          "queue_held_ms": 10957.148,
+          "rows_scanned_local": 100000,
+          "queue_full": 0,
+          "elapsed_ms": 10957.148,
+          "rows_fetched": 100000
+        },
+        "steady": {
+          "requests": 1.0,
+          "bytes": 12200341.2,
+          "queue_held_ms": 10960.550960000002,
+          "rows_scanned_local": 100027.8,
+          "queue_full": 2.6,
+          "elapsed_ms": 13367.813299741878,
+          "rows_fetched": 100027.8,
+          "cycles": 5
+        },
+        "verified": true
+      },
+      {
+        "strategy": "KeyHashSnapshot",
+        "queue_full": 1,
+        "bootstrap": {
+          "requests": 2,
+          "bytes": 16485331,
+          "queue_held_ms": 15588.264799999999,
+          "rows_scanned_local": 200000,
+          "queue_full": 0,
+          "elapsed_ms": 16805.530963780726,
+          "rows_fetched": 100000
+        },
+        "steady": {
+          "requests": 2.0,
+          "bytes": 4386745.6,
+          "queue_held_ms": 4917.526479999999,
+          "rows_scanned_local": 100813.0,
+          "queue_full": 0.2,
+          "elapsed_ms": 7279.428899251536,
+          "rows_fetched": 785.2,
+          "cycles": 5
+        },
+        "verified": true
+      },
+      {
+        "strategy": "BucketDiff/256",
+        "queue_full": 4,
+        "bootstrap": {
+          "requests": 3,
+          "bytes": 16494292,
+          "queue_held_ms": 16795.433599999997,
+          "rows_scanned_local": 300000,
+          "queue_full": 0,
+          "elapsed_ms": 19358.298465396863,
+          "rows_fetched": 100000
+        },
+        "steady": {
+          "requests": 3.0,
+          "bytes": 4300108.6,
+          "queue_held_ms": 6048.49488,
+          "rows_scanned_local": 200840.8,
+          "queue_full": 0.8,
+          "elapsed_ms": 10038.105886642366,
+          "rows_fetched": 785.2,
+          "cycles": 5
+        },
+        "verified": true
+      },
+      {
+        "strategy": "LocalSnapshot",
+        "queue_full": 2,
+        "bootstrap": {
+          "requests": 1,
+          "bytes": 12196460,
+          "queue_held_ms": 10957.168,
+          "rows_scanned_local": 100000,
+          "queue_full": 0,
+          "elapsed_ms": 10957.168,
+          "rows_fetched": 100000
+        },
+        "steady": {
+          "requests": 1.0,
+          "bytes": 97144.6,
+          "queue_held_ms": 1277.99368,
+          "rows_scanned_local": 100027.8,
+          "queue_full": 0.4,
+          "elapsed_ms": 2747.4450178927627,
+          "rows_fetched": 785.2,
+          "cycles": 5
+        },
+        "verified": true
+      }
+    ]
+  },
+  "trace_digests": {
+    "0.001": {
+      "FullRefresh": [
+        "fc742381e4f0fa8b",
+        "4148c603149c177d",
+        "f6967f67a5e59d13",
+        "3a0cb0ba77a6722a",
+        "2dd8c483bd7186a3",
+        "0ec2f6c278f6e8c0"
+      ],
+      "KeyHashSnapshot": [
+        "fc742381e4f0fa8b",
+        "4148c603149c177d",
+        "f6967f67a5e59d13",
+        "3a0cb0ba77a6722a",
+        "2dd8c483bd7186a3",
+        "0ec2f6c278f6e8c0"
+      ],
+      "BucketDiff/256": [
+        "fc742381e4f0fa8b",
+        "4148c603149c177d",
+        "f6967f67a5e59d13",
+        "3a0cb0ba77a6722a",
+        "2dd8c483bd7186a3",
+        "0ec2f6c278f6e8c0"
+      ],
+      "BucketDiff/4096": [
+        "fc742381e4f0fa8b",
+        "4148c603149c177d",
+        "f6967f67a5e59d13",
+        "3a0cb0ba77a6722a",
+        "2dd8c483bd7186a3",
+        "0ec2f6c278f6e8c0"
+      ],
+      "LocalSnapshot": [
+        "fc742381e4f0fa8b",
+        "4148c603149c177d",
+        "f6967f67a5e59d13",
+        "3a0cb0ba77a6722a",
+        "2dd8c483bd7186a3",
+        "0ec2f6c278f6e8c0"
+      ]
+    },
+    "0.01": {
+      "FullRefresh": [
+        "fc742381e4f0fa8b",
+        "caa00227718f08d8",
+        "8fa7dbecb56fb8a1",
+        "65f855eb0de75855",
+        "6cda42df89dc7e32",
+        "040642623cec5b3f"
+      ],
+      "KeyHashSnapshot": [
+        "fc742381e4f0fa8b",
+        "caa00227718f08d8",
+        "8fa7dbecb56fb8a1",
+        "65f855eb0de75855",
+        "6cda42df89dc7e32",
+        "040642623cec5b3f"
+      ],
+      "BucketDiff/256": [
+        "fc742381e4f0fa8b",
+        "caa00227718f08d8",
+        "8fa7dbecb56fb8a1",
+        "65f855eb0de75855",
+        "6cda42df89dc7e32",
+        "040642623cec5b3f"
+      ],
+      "BucketDiff/4096": [
+        "fc742381e4f0fa8b",
+        "caa00227718f08d8",
+        "8fa7dbecb56fb8a1",
+        "65f855eb0de75855",
+        "6cda42df89dc7e32",
+        "040642623cec5b3f"
+      ],
+      "LocalSnapshot": [
+        "fc742381e4f0fa8b",
+        "caa00227718f08d8",
+        "8fa7dbecb56fb8a1",
+        "65f855eb0de75855",
+        "6cda42df89dc7e32",
+        "040642623cec5b3f"
+      ]
+    },
+    "0.1": {
+      "FullRefresh": [
+        "fc742381e4f0fa8b",
+        "98b8a0f711ac34ba",
+        "d3c0e766a14aefa7",
+        "7fce2a6597abcc79",
+        "f57d1884ffc78869",
+        "7d32099bd70be467"
+      ],
+      "KeyHashSnapshot": [
+        "fc742381e4f0fa8b",
+        "98b8a0f711ac34ba",
+        "d3c0e766a14aefa7",
+        "7fce2a6597abcc79",
+        "f57d1884ffc78869",
+        "7d32099bd70be467"
+      ],
+      "BucketDiff/256": [
+        "fc742381e4f0fa8b",
+        "98b8a0f711ac34ba",
+        "d3c0e766a14aefa7",
+        "7fce2a6597abcc79",
+        "f57d1884ffc78869",
+        "7d32099bd70be467"
+      ],
+      "BucketDiff/4096": [
+        "fc742381e4f0fa8b",
+        "98b8a0f711ac34ba",
+        "d3c0e766a14aefa7",
+        "7fce2a6597abcc79",
+        "f57d1884ffc78869",
+        "7d32099bd70be467"
+      ],
+      "LocalSnapshot": [
+        "fc742381e4f0fa8b",
+        "98b8a0f711ac34ba",
+        "d3c0e766a14aefa7",
+        "7fce2a6597abcc79",
+        "f57d1884ffc78869",
+        "7d32099bd70be467"
+      ]
+    },
+    "0.5": {
+      "FullRefresh": [
+        "fc742381e4f0fa8b",
+        "2d3d8e2eba5104c8",
+        "83259a0cede7ebc8",
+        "dd3459fcb8368bf3",
+        "2f889678d9bd08b0",
+        "fb971bd5caee3c34"
+      ],
+      "KeyHashSnapshot": [
+        "fc742381e4f0fa8b",
+        "2d3d8e2eba5104c8",
+        "83259a0cede7ebc8",
+        "dd3459fcb8368bf3",
+        "2f889678d9bd08b0",
+        "fb971bd5caee3c34"
+      ],
+      "BucketDiff/256": [
+        "fc742381e4f0fa8b",
+        "2d3d8e2eba5104c8",
+        "83259a0cede7ebc8",
+        "dd3459fcb8368bf3",
+        "2f889678d9bd08b0",
+        "fb971bd5caee3c34"
+      ],
+      "BucketDiff/4096": [
+        "fc742381e4f0fa8b",
+        "2d3d8e2eba5104c8",
+        "83259a0cede7ebc8",
+        "dd3459fcb8368bf3",
+        "2f889678d9bd08b0",
+        "fb971bd5caee3c34"
+      ],
+      "LocalSnapshot": [
+        "fc742381e4f0fa8b",
+        "2d3d8e2eba5104c8",
+        "83259a0cede7ebc8",
+        "dd3459fcb8368bf3",
+        "2f889678d9bd08b0",
+        "fb971bd5caee3c34"
+      ]
+    }
+  }
+}
